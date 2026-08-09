@@ -12,7 +12,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -65,6 +69,9 @@ public class LauncherActivity extends BaseActivity {
     private mcAccountSpinner mAccountSpinner;
     private FragmentContainerView mFragmentView;
     private ImageButton mSettingsButton;
+    private DrawerLayout mSettingsDrawer;
+    private SwitchCompat mSettingsVisibilitySwitch;
+    private LinearLayout mQuickActionsList;
     private ProgressLayout mProgressLayout;
     private ProgressServiceKeeper mProgressServiceKeeper;
     private ModloaderInstallTracker mInstallTracker;
@@ -97,12 +104,8 @@ public class LauncherActivity extends BaseActivity {
 
     /* Listener for the settings fragment */
     private final View.OnClickListener mSettingButtonListener = v -> {
-        Fragment fragment = getSupportFragmentManager().findFragmentById(mFragmentView.getId());
-        if (fragment instanceof MainMenuFragment) {
-            Tools.swapFragment(this, LauncherPreferenceFragment.class, SETTING_FRAGMENT_TAG, null);
-        } else {
-            // The setting button doubles as a home button now
-            Tools.backToMainMenu(this);
+        if (mSettingsDrawer != null) {
+            mSettingsDrawer.openDrawer(mSettingsDrawer.findViewById(R.id.settings_drawer_content));
         }
     };
 
@@ -364,6 +367,24 @@ public class LauncherActivity extends BaseActivity {
         mSettingsButton = findViewById(R.id.setting_button);
         mAccountSpinner = findViewById(R.id.account_spinner);
         mProgressLayout = findViewById(R.id.progress_layout);
+
+        // Initialize settings drawer
+        mSettingsDrawer = findViewById(R.id.settings_drawerlayout);
+        if (mSettingsDrawer != null) {
+            mSettingsVisibilitySwitch = mSettingsDrawer.findViewById(R.id.settings_visibility_switch);
+            mQuickActionsList = mSettingsDrawer.findViewById(R.id.quick_actions_list);
+
+            // Set initial switch state
+            mSettingsVisibilitySwitch.setChecked(LauncherPreferences.PREF_SETTINGS_BUTTON_VISIBLE);
+            mSettingsVisibilitySwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                LauncherPreferences.PREF_SETTINGS_BUTTON_VISIBLE = isChecked;
+                LauncherPreferences.DEFAULT_PREF.edit().putBoolean("settings_button_visible", isChecked).apply();
+                applySettingsButtonPreferences();
+            });
+
+            // Build quick actions
+            buildQuickActions();
+        }
     }
 
     /**
@@ -398,8 +419,47 @@ public class LauncherActivity extends BaseActivity {
         mSettingsButton.setLayoutParams(params);
     }
 
-    private float dp(float value) {
+private float dp(float value) {
         return value * getResources().getDisplayMetrics().density;
     }
+
+    private void buildQuickActions() {
+        if (mQuickActionsList == null) return;
+
+        // Add "Open Settings" action
+        addQuickAction(getString(R.string.mcl_setting_title), R.drawable.ic_menu_settings, v -> {
+            Tools.swapFragment(this, LauncherPreferenceFragment.class, SETTING_FRAGMENT_TAG, null);
+            mSettingsDrawer.closeDrawers();
+        });
+
+        // Add "Custom Controls" action
+        addQuickAction(getString(R.string.mcl_option_customcontrol), R.drawable.ic_menu_custom_controls, v -> {
+            startActivity(new Intent(this, CustomControlsActivity.class));
+            mSettingsDrawer.closeDrawers();
+        });
+
+        // Add "Terminal" action
+        addQuickAction(getString(R.string.main_terminal), R.drawable.ic_terminal, v -> {
+            startActivity(new Intent(this, ConsoleActivity.class));
+            mSettingsDrawer.closeDrawers();
+        });
+
+        // Add "Mods" action
+        addQuickAction(getString(R.string.mods_title), R.drawable.ic_folder, v -> {
+            Tools.swapFragment(this, ModManagerFragment.class, ModManagerFragment.TAG, null);
+            mSettingsDrawer.closeDrawers();
+        });
+    }
+
+    private void addQuickAction(String title, int iconRes, View.OnClickListener listener) {
+        View itemView = getLayoutInflater().inflate(R.layout.drawer_menu_item, mQuickActionsList, false);
+        TextView tv = itemView.findViewById(R.id.drawer_item_text);
+        tv.setText(title);
+        tv.setCompoundDrawablesRelativeWithIntrinsicBounds(iconRes, 0, 0, 0);
+        tv.setCompoundDrawablePadding((int) dp(12));
+        itemView.setOnClickListener(listener);
+        mQuickActionsList.addView(itemView);
+    }
+}
 
 }

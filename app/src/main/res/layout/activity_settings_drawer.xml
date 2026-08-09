@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings_drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- Main content (empty - the drawer is the UI) -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Right drawer: Glass settings panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_drawer_content"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@android:color/transparent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/background_panel"
+            android:elevation="@dimen/_8sdp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_12sdp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingBottom="@dimen/_24sdp">
+
+                <!-- Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="@string/mcl_setting_title"
+                    android:textAllCaps="true"
+                    android:textColor="@color/violet_accent_light"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1" />
+
+                <!-- Section: Settings Button -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="@string/settings_button_section"
+                    android:textAllCaps="true"
+                    android:textColor="@color/violet_accent_light"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:paddingHorizontal="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_button_visibility"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/settings_visibility_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="@color/violet_accent"
+                        android:trackTint="@color/violet_accent_light" />
+
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@color/glass_stroke" />
+
+                <!-- Quick actions -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:text="@string/quick_actions"
+                    android:textAllCaps="true"
+                    android:textColor="@color/violet_accent_light"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <LinearLayout
+                    android:id="@+id/quick_actions_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_8sdp">
+                    <!-- Items added dynamically -->
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

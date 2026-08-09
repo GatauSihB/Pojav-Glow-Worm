@@ -41,6 +41,10 @@
     <string name="mcl_setting_title_longpresstrigger">觸發長按延遲</string>
     <string name="mcl_setting_subtitle_longpresstrigger">觸發破壞方塊及釋出物件的按壓時間。</string>
     <string name="mcl_setting_title_buttonscale">控制鍵縮放</string>
+    <string name="mcl_setting_title">設置</string>
+    <string name="settings_button_section">設置按鈕</string>
+    <string name="settings_button_visibility">顯示設置按鈕</string>
+    <string name="quick_actions">快速操作</string>
     <string name="mcl_setting_subtitle_buttonscale">若按鍵太小，可以將其放大。</string>
     <string name="mcl_setting_title_mousescale">滑鼠縮放</string>
     <string name="mcl_setting_subtitle_mousescale">改變虛擬鼠標的大小.</string>
