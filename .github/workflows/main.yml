@@ -26,25 +26,45 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Get Jre
+      - name: Get Jre 17
         uses: dawidd6/action-download-artifact@v3
         with:
-          workflow: jrepush.yml
-          path: app/src/main/assets/components
+          workflow: buildjre17.yml
+          path: app/src/main/assets/components/jre-17
           workflow_conclusion: success
           repo: Vera-Firefly/android-openjdk-autobuild
           branch: main
-          name: jre-pojav
+          name: jre17-pojav
 
-      - name: Get JSPH
+      - name: Get Jre 21
         uses: dawidd6/action-download-artifact@v3
         with:
-          workflow: jrepush.yml
+          workflow: buildjre21.yml
+          path: app/src/main/assets/components/jre-21
+          workflow_conclusion: success
+          repo: Vera-Firefly/android-openjdk-autobuild
+          branch: main
+          name: jre21-pojav
+
+      - name: Get JSPh 17
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: buildjre17.yml
           path: app/src/main/jniLibs/arm64-v8a
           workflow_conclusion: success
           repo: Vera-Firefly/android-openjdk-autobuild
           branch: main
-          name: libjsph
+          name: jsph-17
+
+      - name: Get JSPh 21
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: buildjre21.yml
+          path: app/src/main/jniLibs/arm64-v8a
+          workflow_conclusion: success
+          repo: Vera-Firefly/android-openjdk-autobuild
+          branch: main
+          name: jsph-21
 
       - name: Get LWJGL3
         uses: dawidd6/action-download-artifact@v3
@@ -105,15 +125,25 @@ jobs:
         if: github.repository_owner == 'Vera-Firefly'
         run: echo "IS_OFFICIAL=true" >> $GITHUB_ENV
 
-      - name: Get JSPH
+      - name: Get JSPh 17
         uses: dawidd6/action-download-artifact@v3
         with:
-          workflow: jrepush.yml
+          workflow: buildjre17.yml
           path: app/src/main/jniLibs/arm64-v8a
           workflow_conclusion: success
           repo: Vera-Firefly/android-openjdk-autobuild
           branch: main
-          name: libjsph
+          name: jsph-17
+
+      - name: Get JSPh 21
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: buildjre21.yml
+          path: app/src/main/jniLibs/arm64-v8a
+          workflow_conclusion: success
+          repo: Vera-Firefly/android-openjdk-autobuild
+          branch: main
+          name: jsph-21
 
       - name: Get LWJGL3
         uses: dawidd6/action-download-artifact@v3
