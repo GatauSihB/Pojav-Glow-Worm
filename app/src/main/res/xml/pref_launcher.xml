@@ -64,6 +64,48 @@
             app2:useSimpleSummaryProvider="true"
             app2:iconSpaceReserved="false"/>
 
+        <PreferenceCategory
+            android:title="@string/preference_settings_button_title"
+            app2:iconSpaceReserved="false">
+
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="settingsButtonVisible"
+                android:summary="@string/preference_settings_button_visible_desc"
+                android:title="@string/preference_settings_button_visible_title"
+                app2:iconSpaceReserved="false"/>
+
+            <androidx.preference.ListPreference
+                android:defaultValue="top_end"
+                android:key="settingsButtonPosition"
+                android:entries="@array/settings_button_position"
+                android:entryValues="@array/settings_button_position_value"
+                android:summary="%s"
+                android:title="@string/preference_settings_button_position_title"
+                app2:iconSpaceReserved="false"/>
+
+            <net.kdt.pojavlaunch.firefly.prefs.CustomSeekBarPreference
+                android:key="settingsButtonYOffset"
+                android:title="@string/preference_settings_button_y_offset_title"
+                android:summary="@string/preference_settings_button_y_offset_desc"
+                app2:min="0"
+                app2:defaultValue="0"
+                app2:seekBarIncrement="5"
+                app2:showSeekBarValue="true"
+                app2:iconSpaceReserved="false"/>
+
+            <net.kdt.pojavlaunch.firefly.prefs.CustomSeekBarPreference
+                android:key="settingsButtonScale"
+                android:title="@string/preference_settings_button_scale_title"
+                android:summary="@string/preference_settings_button_scale_desc"
+                app2:min="50"
+                app2:defaultValue="100"
+                app2:seekBarIncrement="5"
+                app2:showSeekBarValue="true"
+                app2:iconSpaceReserved="false"/>
+
+        </PreferenceCategory>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

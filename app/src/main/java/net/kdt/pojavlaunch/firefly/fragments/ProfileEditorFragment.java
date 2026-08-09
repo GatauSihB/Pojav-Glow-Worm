@@ -26,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import com.firefly.utils.ListUtils;
 import com.movtery.ui.subassembly.customprofilepath.ProfilePathManager;
 
+import net.kdt.pojavlaunch.firefly.InstanceManager;
 import net.kdt.pojavlaunch.firefly.R;
 import net.kdt.pojavlaunch.firefly.Tools;
 import net.kdt.pojavlaunch.firefly.extra.ExtraConstants;
@@ -251,6 +252,13 @@ public class ProfileEditorFragment extends Fragment implements CropperUtils.Crop
         if (mTempProfile.controlFile.isEmpty()) mTempProfile.controlFile = null;
         if (mTempProfile.javaArgs.isEmpty()) mTempProfile.javaArgs = null;
         if (mTempProfile.gameDir.isEmpty()) mTempProfile.gameDir = null;
+
+        // New profiles get their own instance folder (Prism-Launcher-like behavior),
+        // the legacy default profile keeps using the shared .minecraft folder.
+        if (getArguments() != null) {
+            InstanceManager.assignInstanceFolder(mTempProfile);
+            mDefaultPath.setText(mTempProfile.gameDir);
+        }
 
         Runtime selectedRuntime = (Runtime) mDefaultRuntime.getSelectedItem();
         mTempProfile.javaDir = (selectedRuntime.name.equals("<Default>") || selectedRuntime.versionString == null)

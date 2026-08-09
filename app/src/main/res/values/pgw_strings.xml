@@ -241,4 +241,31 @@
     <!-- Disable Downloader -->
     <string name="vprof_disable_downloader_title">Disable Downloader</string>
     <string name="vprof_enable_disable_downloader">Disable Download Check, Launch Directly</string>
+
+    <!-- Settings Button -->
+    <string name="preference_settings_button_title">Settings button</string>
+    <string name="preference_settings_button_visible_title">Show settings button</string>
+    <string name="preference_settings_button_visible_desc">Show or hide the settings button on the launcher home screen.</string>
+    <string name="preference_settings_button_position_title">Position</string>
+    <string name="preference_settings_button_y_offset_title">Vertical offset</string>
+    <string name="preference_settings_button_y_offset_desc">Move the settings button lower on the screen.</string>
+    <string name="preference_settings_button_scale_title">Size</string>
+    <string name="preference_settings_button_scale_desc">Adjust the size of the settings button.</string>
+
+    <!-- Mod Manager -->
+    <string name="global_back">Back</string>
+    <string name="mods_title">Mods</string>
+    <string name="mods_add">Import mod</string>
+    <string name="mods_empty">No mods installed for this profile yet.\nTap the + button to import one.</string>
+    <string name="mods_enabled">Enabled</string>
+    <string name="mods_disabled">Disabled</string>
+    <string name="mods_enable">Enable</string>
+    <string name="mods_disable">Disable</string>
+    <string name="mods_toggle_failed">Failed to change mod state</string>
+    <string name="mods_delete_title">Delete mod</string>
+    <string name="mods_delete_message">Are you sure you want to delete %s ?</string>
+    <string name="mods_deleted">Mod deleted</string>
+    <string name="mods_delete_failed">Failed to delete mod</string>
+    <string name="mods_imported">Mods imported</string>
+    <string name="mods_import_failed">Failed to import mod</string>
 </resources>

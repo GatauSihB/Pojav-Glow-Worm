@@ -23,6 +23,10 @@ import net.kdt.pojavlaunch.firefly.utils.JREUtils;
 public class LauncherPreferences {
     public static final String PREF_KEY_CURRENT_PROFILE = "currentProfile";
     public static final String PREF_KEY_SKIP_NOTIFICATION_CHECK = "skipNotificationPermissionCheck";
+    public static final String PREF_KEY_SETTINGS_BUTTON_VISIBLE = "settingsButtonVisible";
+    public static final String PREF_KEY_SETTINGS_BUTTON_POSITION = "settingsButtonPosition";
+    public static final String PREF_KEY_SETTINGS_BUTTON_Y_OFFSET = "settingsButtonYOffset";
+    public static final String PREF_KEY_SETTINGS_BUTTON_SCALE = "settingsButtonScale";
 
     public static SharedPreferences DEFAULT_PREF;
     public static String PREF_RENDERER = "opengles2";
@@ -76,6 +80,11 @@ public class LauncherPreferences {
     public static boolean PREF_ZINK_PREFER_SYSTEM_DRIVER = false;
 
     public static boolean PREF_EXP_SETUP = false;
+
+    public static boolean PREF_SETTINGS_BUTTON_VISIBLE = true;
+    public static String PREF_SETTINGS_BUTTON_POSITION = "top_end";
+    public static int PREF_SETTINGS_BUTTON_Y_OFFSET = 0;
+    public static int PREF_SETTINGS_BUTTON_SCALE = 100;
 
     public static boolean PREF_INITIAL_FRAMEBUFFER = false;
     public static boolean PREF_GL_INITIAL_FRAMEBUFFER = false;
@@ -162,6 +171,11 @@ public class LauncherPreferences {
         PREF_VERIFY_MANIFEST = DEFAULT_PREF.getBoolean("verifyManifest", true);
         PREF_SKIP_NOTIFICATION_PERMISSION_CHECK = DEFAULT_PREF.getBoolean(PREF_KEY_SKIP_NOTIFICATION_CHECK, false);
         PREF_VSYNC_IN_ZINK = DEFAULT_PREF.getBoolean("vsync_in_zink", true);
+
+        PREF_SETTINGS_BUTTON_VISIBLE = DEFAULT_PREF.getBoolean(PREF_KEY_SETTINGS_BUTTON_VISIBLE, true);
+        PREF_SETTINGS_BUTTON_POSITION = DEFAULT_PREF.getString(PREF_KEY_SETTINGS_BUTTON_POSITION, "top_end");
+        PREF_SETTINGS_BUTTON_Y_OFFSET = DEFAULT_PREF.getInt(PREF_KEY_SETTINGS_BUTTON_Y_OFFSET, 0);
+        PREF_SETTINGS_BUTTON_SCALE = DEFAULT_PREF.getInt(PREF_KEY_SETTINGS_BUTTON_SCALE, 100);
 
         PREF_FORCE_ENABLE_TOUCHCONTROLLER = DEFAULT_PREF.getBoolean("forceEnableTouchController", false);
         PREF_TOUCHCONTROLLER_VIBRATE_LENGTH = DEFAULT_PREF.getInt("touchControllerVibrateLength", 100);

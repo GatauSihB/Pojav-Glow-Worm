@@ -267,4 +267,31 @@
     <!-- Disable Downloader -->
     <string name="vprof_disable_downloader_title">禁用下载器</string>
     <string name="vprof_enable_disable_downloader">禁用下载检查, 直接启动</string>
+
+    <!-- Settings Button -->
+    <string name="preference_settings_button_title">设置按钮</string>
+    <string name="preference_settings_button_visible_title">显示设置按钮</string>
+    <string name="preference_settings_button_visible_desc">显示或隐藏启动器主界面上的设置按钮。</string>
+    <string name="preference_settings_button_position_title">位置</string>
+    <string name="preference_settings_button_y_offset_title">垂直偏移</string>
+    <string name="preference_settings_button_y_offset_desc">将设置按钮在屏幕上向下移动。</string>
+    <string name="preference_settings_button_scale_title">大小</string>
+    <string name="preference_settings_button_scale_desc">调整设置按钮的大小。</string>
+
+    <!-- Mod Manager -->
+    <string name="global_back">返回</string>
+    <string name="mods_title">模组</string>
+    <string name="mods_add">导入模组</string>
+    <string name="mods_empty">此配置档尚未安装任何模组。\n点击 + 按钮导入模组。</string>
+    <string name="mods_enabled">已启用</string>
+    <string name="mods_disabled">已禁用</string>
+    <string name="mods_enable">启用</string>
+    <string name="mods_disable">禁用</string>
+    <string name="mods_toggle_failed">无法更改模组状态</string>
+    <string name="mods_delete_title">删除模组</string>
+    <string name="mods_delete_message">确定要删除 %s 吗？</string>
+    <string name="mods_deleted">模组已删除</string>
+    <string name="mods_delete_failed">删除模组失败</string>
+    <string name="mods_imported">模组已导入</string>
+    <string name="mods_import_failed">导入模组失败</string>
 </resources>

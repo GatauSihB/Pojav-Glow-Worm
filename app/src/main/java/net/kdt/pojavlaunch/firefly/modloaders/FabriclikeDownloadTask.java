@@ -4,6 +4,7 @@ import com.kdt.mcgui.ProgressLayout;
 import com.movtery.ui.subassembly.customprofilepath.ProfilePathHome;
 import com.movtery.ui.subassembly.customprofilepath.ProfilePathManager;
 
+import net.kdt.pojavlaunch.firefly.InstanceManager;
 import net.kdt.pojavlaunch.firefly.R;
 import net.kdt.pojavlaunch.firefly.Tools;
 import net.kdt.pojavlaunch.firefly.progresskeeper.ProgressKeeper;
@@ -65,6 +66,7 @@ public class FabriclikeDownloadTask implements Runnable, Tools.DownloaderFeedbac
             fabricProfile.lastVersionId = versionId;
             fabricProfile.name = mUtils.getName();
             fabricProfile.icon = mUtils.getIconName();
+            InstanceManager.assignInstanceFolder(fabricProfile);
             LauncherProfiles.insertMinecraftProfile(fabricProfile);
             LauncherProfiles.write(ProfilePathManager.getCurrentProfile());
         }

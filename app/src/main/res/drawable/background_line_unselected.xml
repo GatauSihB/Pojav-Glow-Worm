@@ -10,7 +10,7 @@
 
             <stroke
                 android:width="@dimen/_2sdp"
-                android:color="#909090"/>
+                android:color="@color/violet_soft"/>
         </shape>
     </item>
     <item android:drawable="?attr/selectableItemBackground"/>

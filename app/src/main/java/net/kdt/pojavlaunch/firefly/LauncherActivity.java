@@ -18,6 +18,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -204,6 +205,7 @@ public class LauncherActivity extends BaseActivity {
         ProgressKeeper.addTaskCountListener((mProgressServiceKeeper = new ProgressServiceKeeper(this)));
 
         mSettingsButton.setOnClickListener(mSettingButtonListener);
+        applySettingsButtonPreferences();
         ProgressKeeper.addTaskCountListener(mProgressLayout);
         ExtraCore.addExtraListener(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
         ExtraCore.addExtraListener(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
@@ -362,6 +364,42 @@ public class LauncherActivity extends BaseActivity {
         mSettingsButton = findViewById(R.id.setting_button);
         mAccountSpinner = findViewById(R.id.account_spinner);
         mProgressLayout = findViewById(R.id.progress_layout);
+    }
+
+    /**
+     * Apply the user's preferences to the settings button:
+     * visibility, horizontal position and size.
+     */
+    private void applySettingsButtonPreferences() {
+        mSettingsButton.setVisibility(LauncherPreferences.PREF_SETTINGS_BUTTON_VISIBLE ? View.VISIBLE : View.GONE);
+        mSettingsButton.setTranslationY(dp(LauncherPreferences.PREF_SETTINGS_BUTTON_Y_OFFSET));
+
+        float scale = LauncherPreferences.PREF_SETTINGS_BUTTON_SCALE / 100f;
+        int baseSize = (int) dp(52);
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) mSettingsButton.getLayoutParams();
+        params.width = (int) (baseSize * scale);
+        params.height = (int) (baseSize * scale);
+        params.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
+        params.bottomToBottom = ConstraintLayout.LayoutParams.UNSET;
+        switch (LauncherPreferences.PREF_SETTINGS_BUTTON_POSITION) {
+            case "top_start":
+                params.startToStart = ConstraintLayout.LayoutParams.PARENT_ID;
+                params.endToEnd = ConstraintLayout.LayoutParams.UNSET;
+                break;
+            case "top_center":
+                params.startToStart = ConstraintLayout.LayoutParams.PARENT_ID;
+                params.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID;
+                break;
+            default:
+                params.startToStart = ConstraintLayout.LayoutParams.UNSET;
+                params.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID;
+                break;
+        }
+        mSettingsButton.setLayoutParams(params);
+    }
+
+    private float dp(float value) {
+        return value * getResources().getDisplayMetrics().density;
     }
 
 }

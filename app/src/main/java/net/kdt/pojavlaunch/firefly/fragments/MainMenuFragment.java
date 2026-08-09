@@ -55,6 +55,7 @@ public class MainMenuFragment extends Fragment implements TaskCountListener {
         Button mInstallJarButton = view.findViewById(R.id.install_jar_button);
         Button mStartTerminalButton = view.findViewById(R.id.start_terminal_button);
         Button mShareLogsButton = view.findViewById(R.id.share_logs_button);
+        Button mModsButton = view.findViewById(R.id.mods_button);
 
         ImageButton mPathManagerButton = view.findViewById(R.id.path_manager_button);
         ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
@@ -74,6 +75,7 @@ public class MainMenuFragment extends Fragment implements TaskCountListener {
         });
         mStartTerminalButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), ConsoleActivity.class)));
         mShareLogsButton.setOnClickListener((v) -> shareLog(requireContext()));
+        mModsButton.setOnClickListener(v -> Tools.swapFragment(requireActivity(), ModManagerFragment.class, ModManagerFragment.TAG, null));
 
         mPathManagerButton.setOnClickListener(v -> {
             if (!mTasksRunning) {

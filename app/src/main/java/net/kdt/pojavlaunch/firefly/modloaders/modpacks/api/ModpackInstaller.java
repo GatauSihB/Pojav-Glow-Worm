@@ -3,6 +3,7 @@ package net.kdt.pojavlaunch.firefly.modloaders.modpacks.api;
 import com.kdt.mcgui.ProgressLayout;
 import com.movtery.ui.subassembly.customprofilepath.ProfilePathManager;
 
+import net.kdt.pojavlaunch.firefly.InstanceManager;
 import net.kdt.pojavlaunch.firefly.R;
 import net.kdt.pojavlaunch.firefly.Tools;
 import net.kdt.pojavlaunch.firefly.modloaders.modpacks.imagecache.ModIconCache;
@@ -46,7 +47,7 @@ public class ModpackInstaller {
             });
 
             // Install the modpack
-            modLoaderInfo = installFunction.installModpack(modpackFile, new File(ProfilePathManager.getCurrentPath(), "custom_instances/" + modpackName));
+            modLoaderInfo = installFunction.installModpack(modpackFile, new File(ProfilePathManager.getCurrentPath(), InstanceManager.INSTANCES_DIR + "/" + modpackName));
 
         } finally {
             modpackFile.delete();
@@ -58,7 +59,7 @@ public class ModpackInstaller {
 
         // Create the instance
         MinecraftProfile profile = new MinecraftProfile();
-        profile.gameDir = "./custom_instances/" + modpackName;
+        profile.gameDir = InstanceManager.INSTANCES_DIR + "/" + modpackName;
         profile.name = modDetail.title;
         profile.lastVersionId = modLoaderInfo.getVersionId();
         profile.icon = ModIconCache.getBase64Image(modDetail.getIconCacheTag());
