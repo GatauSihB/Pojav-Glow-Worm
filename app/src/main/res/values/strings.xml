@@ -11,6 +11,13 @@
     <!-- Login strings -->
     <string name="login_online_username_hint">Username</string>
     <string name="login_online_login_label">Login</string>
+    <string name="login_offline_username_hint">Enter your username</string>
+    <string name="login_offline_login_label">Play Offline</string>
+    <string name="login_local_title">Local Account</string>
+    <string name="login_or">or</string>
+    <string name="login_choose_method">Choose Login Method</string>
+    <string name="login_choose_method_desc">Select how you want to sign in to play Minecraft</string>
+    <string name="other_login_description">Use a custom authentication server (e.g., Yggdrasil, little-endian, etc.)</string>
 
     <!-- Hint -->
     <string name="hint_control_mapping">"Tap the top center cog icon to open the context menu ⚙\nTap a button to customize: edit, resize, delete, or customize it's keybind."</string>

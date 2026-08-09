@@ -296,4 +296,13 @@
     <string name="mods_delete_failed">删除模组失败</string>
     <string name="mods_imported">模组已导入</string>
     <string name="mods_import_failed">导入模组失败</string>
+
+    <!-- Login Strings -->
+    <string name="login_offline_username_hint">输入你的用户名</string>
+    <string name="login_offline_login_label">离线游玩</string>
+    <string name="login_local_title">本地账户</string>
+    <string name="login_or">或</string>
+    <string name="login_choose_method">选择登录方式</string>
+    <string name="login_choose_method_desc">选择你想要如何登录来玩 Minecraft</string>
+    <string name="other_login_description">使用自定义认证服务器（如 Yggdrasil、little-endian 等）</string>
 </resources>

@@ -43,6 +43,7 @@ public class ModManagerFragment extends Fragment {
 
     private File mModsDir;
     private TextView mEmptyView;
+    private androidx.cardview.widget.CardView mEmptyCard;
     private RecyclerView mRecyclerview;
     private ModAdapter mAdapter;
 
@@ -60,6 +61,7 @@ public class ModManagerFragment extends Fragment {
         ImageButton mAddButton = view.findViewById(R.id.mod_manager_add_button);
         TextView mProfileNameView = view.findViewById(R.id.mod_manager_profile_name);
         mEmptyView = view.findViewById(R.id.mod_manager_empty_view);
+        mEmptyCard = view.findViewById(R.id.mod_manager_empty_card);
         mRecyclerview = view.findViewById(R.id.mod_manager_list);
 
         MinecraftProfile profile = LauncherProfiles.getCurrentProfile();
@@ -73,6 +75,15 @@ public class ModManagerFragment extends Fragment {
         mBackButton.setOnClickListener(v -> Tools.backToMainMenu(requireActivity()));
         mAddButton.setOnClickListener(v -> mOpenModLauncher.launch(new String[]{
                 "application/java-archive", "application/zip", "application/octet-stream", "*/*"}));
+
+        // Set up empty card add button
+        if (mEmptyCard != null) {
+            com.kdt.mcgui.MineButton emptyAddButton = mEmptyCard.findViewById(R.id.empty_add_mod_button);
+            if (emptyAddButton != null) {
+                emptyAddButton.setOnClickListener(v -> mOpenModLauncher.launch(new String[]{
+                        "application/java-archive", "application/zip", "application/octet-stream", "*/*"}));
+            }
+        }
 
         refreshList();
     }
@@ -99,6 +110,7 @@ public class ModManagerFragment extends Fragment {
         mAdapter.setMods(mods);
         boolean empty = mods.isEmpty();
         mEmptyView.setVisibility(empty ? View.VISIBLE : View.GONE);
+        if (mEmptyCard != null) mEmptyCard.setVisibility(empty ? View.VISIBLE : View.GONE);
         mRecyclerview.setVisibility(empty ? View.GONE : View.VISIBLE);
     }
 

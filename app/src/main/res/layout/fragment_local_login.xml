@@ -2,63 +2,102 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app"
-    android:paddingHorizontal="@dimen/fragment_padding_medium"
-    >
+    android:background="@drawable/background_gradient_violet"
+    android:paddingHorizontal="@dimen/_24sdp">
 
-    <View
-        android:id="@+id/login_menu"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-
-        android:background="@drawable/background_card"
-        android:translationZ="-1dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/login_card"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/login_online_username_hint"
-
-        app:layout_constraintBottom_toTopOf="@+id/login_edit_email"
-        app:layout_constraintStart_toStartOf="@+id/login_edit_email" />
-
-
-    <com.kdt.mcgui.MineEditText
-        android:id="@+id/login_edit_email"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_37sdp"
-
-        android:layout_marginHorizontal="@dimen/_25sdp"
-
-        android:layout_marginTop="@dimen/_60sdp"
-        android:imeOptions="flagNoExtractUi"
-        android:inputType="textEmailAddress"
-        android:textSize="@dimen/_16ssp"
-
-        app:layout_constraintEnd_toEndOf="@+id/login_menu"
-        app:layout_constraintStart_toStartOf="@+id/login_menu"
-        app:layout_constraintTop_toTopOf="@+id/login_menu"
-        app:layout_constraintVertical_bias="0.251" />
-
-    <com.kdt.mcgui.MineButton
-        android:id="@+id/login_button"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_42sdp"
-        android:layout_marginHorizontal="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/padding_heavy"
-        android:onClick="loginMC"
-        android:text="@string/login_online_login_label"
-
-        android:textColor="@android:color/white"
+        android:background="@drawable/background_panel"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_edit_email" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_32sdp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@string/app_name"
+                android:layout_marginBottom="@dimen/_16sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_24ssp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="@dimen/_8sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_local_title"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginBottom="@dimen/_24sdp" />
+
+            <com.kdt.mcgui.MineEditText
+                android:id="@+id/login_edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="text"
+                android:textSize="@dimen/_14ssp"
+                android:hint="@string/login_offline_username_hint" />
+
+            <com.kdt.mcgui.MineButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:onClick="loginMC"
+                android:text="@string/login_offline_login_label"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/login_or"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_11ssp" />
+
+            <com.kdt.mcgui.MineButton
+                android:id="@+id/microsoft_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/background_pill"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/login_online_login_label"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                android:drawableStart="@drawable/ic_microsoft"
+                android:drawablePadding="@dimen/_12sdp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

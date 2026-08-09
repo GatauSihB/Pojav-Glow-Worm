@@ -281,4 +281,13 @@
     <string name="mods_delete_failed">刪除模組失敗</string>
     <string name="mods_imported">模組已匯入</string>
     <string name="mods_import_failed">匯入模組失敗</string>
+
+    <!-- Login Strings -->
+    <string name="login_offline_username_hint">輸入你的用戶名</string>
+    <string name="login_offline_login_label">離線遊玩</string>
+    <string name="login_local_title">本地帳號</string>
+    <string name="login_or">或</string>
+    <string name="login_choose_method">選擇登入方式</string>
+    <string name="login_choose_method_desc">選擇你想要如何登入來玩 Minecraft</string>
+    <string name="other_login_description">使用自訂認證伺服器（如 Yggdrasil、little-endian 等）</string>
 </resources>

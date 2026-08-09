@@ -258,7 +258,8 @@
     <string name="global_back">Back</string>
     <string name="mods_title">Mods</string>
     <string name="mods_add">Import mod</string>
-    <string name="mods_empty">No mods installed for this profile yet.\nTap the + button to import one.</string>
+    <string name="mods_empty">No mods installed for this profile yet.</string>
+    <string name="mods_empty_subtitle">Tap the + button to import your first mod.</string>
     <string name="mods_enabled">Enabled</string>
     <string name="mods_disabled">Disabled</string>
     <string name="mods_enable">Enable</string>
@@ -270,4 +271,13 @@
     <string name="mods_delete_failed">Failed to delete mod</string>
     <string name="mods_imported">Mods imported</string>
     <string name="mods_import_failed">Failed to import mod</string>
+
+    <!-- Login Strings -->
+    <string name="login_offline_username_hint">Enter your username</string>
+    <string name="login_offline_login_label">Play Offline</string>
+    <string name="login_local_title">Local Account</string>
+    <string name="login_or">or</string>
+    <string name="login_choose_method">Choose Login Method</string>
+    <string name="login_choose_method_desc">Select how you want to sign in to play Minecraft</string>
+    <string name="other_login_description">Use a custom authentication server (e.g., Yggdrasil, little-endian, etc.)</string>
 </resources>

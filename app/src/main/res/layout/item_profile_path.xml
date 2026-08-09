@@ -1,78 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:padding="8dp"
-    android:background="@drawable/background_line"
-    tools:ignore="MissingDefaultResource">
+    android:layout_marginVertical="@dimen/_6sdp"
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:background="@drawable/background_list_item"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false">
 
-    <RadioButton
-        android:id="@+id/profile_path_radio_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_16sdp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/profile_path_image_buttons"
-        app:layout_constraintStart_toEndOf="@+id/profile_path_radio_button"
-        app:layout_constraintTop_toTopOf="parent">
+        <RadioButton
+            android:id="@+id/profile_path_radio_button"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:buttonTint="@color/violet_accent" />
 
-        <TextView
-            android:id="@+id/profile_path_title"
+        <LinearLayout
+            android:id="@+id/linearLayoutCompat3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profile_path_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_path_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profile_path_image_buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Title"
-            tools:ignore="HardcodedText" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/_8sdp">
 
-        <TextView
-            android:id="@+id/profile_path_path"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Path"
-            tools:ignore="HardcodedText" />
+            <ImageButton
+                android:id="@+id/profile_path_rename"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@drawable/background_pill"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/profiles_path_rename"
+                android:padding="@dimen/_8sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_edit_profile" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <ImageButton
+                android:id="@+id/profile_path_delete"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:background="@drawable/background_pill"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/global_delete"
+                android:padding="@dimen/_8sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu_delete_forever" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/profile_path_image_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/profile_path_rename"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_edit_profile" />
-
-        <ImageButton
-            android:id="@+id/profile_path_delete"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_menu_delete_forever" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

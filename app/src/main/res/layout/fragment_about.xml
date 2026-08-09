@@ -1,149 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app">
+    android:background="@drawable/background_gradient_violet">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16sdp"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/fragment_padding_medium"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_24sdp">
 
-            <TextView
-                android:id="@+id/title_textview"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_large"
-                android:text="@string/fragment_about_title" />
-
-            <TextView
-                android:id="@+id/open_source"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fragment_about_open_source" />
-
-            <View
-                android:id="@+id/view1"
-                style="@style/ThickDivider"
+            <!-- Header Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/padding_large" />
-
-            <TextView
-                android:id="@+id/component_title"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_large"
-                android:text="@string/fragment_about_component_title" />
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/background_panel"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
 
-            <TextView
-                android:id="@+id/component_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fragment_about_component" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_24sdp"
+                    android:gravity="center_horizontal">
 
-            <View
-                android:id="@+id/view2"
-                style="@style/ThickDivider"
+                    <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/app_name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_22ssp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="@string/about_version"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Description Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/padding_large" />
-
-            <TextView
-                android:id="@+id/contributor_title"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_large"
-                android:text="@string/fragment_about_contributor_title" />
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/background_panel"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
 
-            <com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_pojavteam"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_pojavteam"
-				android:text="PojavLauncherTeam"
-				/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp">
 
-            <com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_vera_firefly"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_verafirefly"
-				android:text="Vera-Firefly"
-				/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:text="@string/about_title"
+                        android:textAllCaps="true"
+                        android:textColor="@color/violet_accent_light"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15" />
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_movtery"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_movtery"
-				android:text="MovTery"
-				/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_description"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_13ssp"
+                        android:lineSpacingExtra="@dimen/_2sdp" />
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_eurya2233369"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_lingmuqiuzhu"
-				android:text="Eurya2233369"
-				/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/about_open_source"
+                        android:textColor="@color/violet_accent"
+                        android:textSize="@dimen/_12ssp"
+                        android:autoLink="web" />
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_coloryr"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_coloryr"
-				android:text="Coloryr"
-				/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_mio"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_mio"
-				android:text="ShirosakiMio"
-				/>
+            <!-- Components Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/background_panel"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_tungstend"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_tungstend"
-				android:text="Tungstend"
-				/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp">
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_aaaapai"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_aaaapai"
-				android:text="aaaapai"
-				/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_12sdp"
+                        android:text="@string/about_components_title"
+                        android:textAllCaps="true"
+                        android:textColor="@color/violet_accent_light"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15" />
 
-			<com.firefly.ui.button.LauncherMenuButton
-				android:id="@+id/contributor_wvn"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/_66sdp"
-				android:background="?android:attr/selectableItemBackground"
-				android:drawableStart="@drawable/image_about_wvn"
-				android:text="WesleyVanNeck"
-				/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_components"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_13ssp"
+                        android:lineSpacingExtra="@dimen/_2sdp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Contributors Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/background_panel"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="@string/about_contributors_title"
+                        android:textAllCaps="true"
+                        android:textColor="@color/violet_accent_light"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15" />
+
+                    <LinearLayout
+                        android:id="@+id/contributors_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:divider="@drawable/divider_glass"
+                        android:showDividers="middle" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- License Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_panel"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:text="@string/about_license_title"
+                        android:textAllCaps="true"
+                        android:textColor="@color/violet_accent_light"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_license"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_11ssp"
+                        android:gravity="center"
+                        android:autoLink="web" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
