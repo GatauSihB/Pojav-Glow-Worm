@@ -3,87 +3,110 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="fill_parent"
+    android:id="@+id/fragment_menu_main"
     android:layout_width="fill_parent"
-    android:gravity="top"
+    android:layout_height="fill_parent"
     android:background="@drawable/background_gradient_violet"
-    android:id="@+id/fragment_menu_main">
+    android:gravity="top">
 
-    <!-- Horizontal menu: one row of tiles, like a launcher dashboard -->
+    <!-- Dashboard: two rows of three menu tiles -->
     <LinearLayout
-        android:id="@+id/menu_row"
+        android:id="@+id/menu_panel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/fragment_padding_medium"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:orientation="horizontal"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:background="@drawable/background_panel"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/_background_display_view"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/about_launcher_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@drawable/ic_menu_news"
-            android:text="@string/mcl_tab_about_launcher"
-            android:textColor="@color/primary_text" />
+            android:orientation="horizontal">
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/custom_control_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@drawable/ic_menu_custom_controls"
-            android:text="@string/mcl_option_customcontrol"
-            android:textColor="@color/primary_text" />
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/about_launcher_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@drawable/ic_menu_news"
+                android:text="@string/mcl_tab_about_launcher"
+                android:textColor="@color/primary_text" />
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/install_jar_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@drawable/ic_menu_install_jar"
-            android:text="@string/main_install_jar_file"
-            android:textColor="@color/primary_text" />
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/custom_control_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@drawable/ic_menu_custom_controls"
+                android:text="@string/mcl_option_customcontrol"
+                android:textColor="@color/primary_text" />
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/start_terminal_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@drawable/ic_terminal"
-            android:text="@string/main_terminal"
-            android:textColor="@color/primary_text" />
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/install_jar_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@drawable/ic_menu_install_jar"
+                android:text="@string/main_install_jar_file"
+                android:textColor="@color/primary_text" />
+        </LinearLayout>
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/share_logs_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@android:drawable/ic_menu_share"
-            android:text="@string/main_share_logs"
-            android:textColor="@color/primary_text" />
+            android:orientation="horizontal">
 
-        <com.kdt.mcgui.MenuTileButton
-            android:id="@+id/mods_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/_4sdp"
-            android:background="@drawable/background_menu_tile"
-            android:drawableTop="@drawable/ic_folder"
-            android:text="@string/mods_title"
-            android:textColor="@color/primary_text" />
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/start_terminal_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@drawable/ic_terminal"
+                android:text="@string/main_terminal"
+                android:textColor="@color/primary_text" />
+
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/share_logs_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@android:drawable/ic_menu_share"
+                android:text="@string/main_share_logs"
+                android:textColor="@color/primary_text" />
+
+            <com.kdt.mcgui.MenuTileButton
+                android:id="@+id/mods_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_menu_tile"
+                android:drawableTop="@drawable/ic_folder"
+                android:text="@string/mods_title"
+                android:textColor="@color/primary_text" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Cosmetic background behind the bottom bar -->
@@ -102,7 +125,7 @@
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"

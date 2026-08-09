@@ -61,6 +61,8 @@
     <string name="main_terminal">Terminal</string>
     <string name="main_termianl_init">初始化</string>
     <string name="main_terminal_loading">加載中...</string>
+    <!-- Quick launch -->
+    <string name="quick_launch">快速啟動</string>
     <!-- Other login -->
     <string name="other_login_api">其他登入</string>
     <string name="other_login_authentication_server">驗證服務器</string>
