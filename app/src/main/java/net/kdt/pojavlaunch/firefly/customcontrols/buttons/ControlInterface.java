@@ -405,4 +405,35 @@ public interface ControlInterface extends View.OnLongClickListener, GrabListener
 
         return true;
     }
+
+    default void applyGlobalScale(int scale) {
+        ControlLayout layout = getControlLayoutParent();
+        if (layout == null) return;
+        
+        // Update the control's size based on global scale
+        ControlData props = getProperties();
+        float layoutScale = layout.getLayoutScale();
+        if (layoutScale == 0) layoutScale = 100f;
+        
+        // Resize width/height proportionally
+        float newWidth = props.getWidth() / layoutScale * scale;
+        float newHeight = props.getHeight() / layoutScale * scale;
+        props.setWidth(newWidth);
+        props.setHeight(newHeight);
+        
+        // Update layout params
+        ViewGroup.LayoutParams params = getControlView().getLayoutParams();
+        if (params != null) {
+            params.width = (int) newWidth;
+            params.height = (int) newHeight;
+            getControlView().setLayoutParams(params);
+        }
+        
+        // Update position (dynamic positions should scale too)
+        getControlView().setX(props.insertDynamicPos(props.dynamicX));
+        getControlView().setY(props.insertDynamicPos(props.dynamicY));
+        
+        // Update background stroke to scale
+        setBackground();
+    }
 }

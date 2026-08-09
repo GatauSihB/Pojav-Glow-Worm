@@ -127,6 +127,9 @@
     <string name="customctrl_selectdefault">选择默认控制键位</string>
     <string name="customctrl_export">导出控制键位</string>
     <string name="main_share_logs">共享日志文件</string>
+    <string name="control_global_scale">全局缩放</string>
+    <string name="customctrl_add_controls">添加控件</string>
+    <string name="customctrl_layout_actions">布局操作</string>
     <string name="main_install_jar_file">执行 .jar</string>
     <string name="main_play">启动游戏</string>
     <string name="autoram_info_msg">内存已设为 %d MB</string>

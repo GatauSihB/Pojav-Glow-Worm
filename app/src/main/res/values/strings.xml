@@ -151,6 +151,10 @@
     <string name="customctrl_selectdefault">Select default controlmap</string>
     <string name="customctrl_export">Export controlmap</string>
 
+    <string name="control_global_scale">Global Scale</string>
+    <string name="customctrl_add_controls">Add Controls</string>
+    <string name="customctrl_layout_actions">Layout Actions</string>
+
     <string name="main_share_logs">Share log file</string>
     <string name="main_install_jar_file">Execute a .jar</string>
     <string name="main_play">Play</string>

@@ -54,6 +54,19 @@
         <item name="6">@string/customctrl_export</item>
     </string-array>
 
+    <string-array name="menu_customcontrol_add_controls">
+        <item name="0">@string/customctrl_addbutton</item>
+        <item name="1">@string/customctrl_addbutton_drawer</item>
+        <item name="2">@string/customctrl_addbutton_joystick</item>
+    </string-array>
+
+    <string-array name="menu_customcontrol_layout_actions">
+        <item name="0">@string/global_load</item>
+        <item name="1">@string/global_save</item>
+        <item name="2">@string/customctrl_selectdefault</item>
+        <item name="3">@string/customctrl_export</item>
+    </string-array>
+
     <string-array name="menu_ingame">
         <item>@string/control_forceclose</item>
         <item>@string/control_viewout</item>
