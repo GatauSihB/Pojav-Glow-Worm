@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import net.kdt.pojavlaunch.firefly.R;
 import net.kdt.pojavlaunch.firefly.customcontrols.ControlData;
@@ -27,6 +28,10 @@ public class AddSubButton extends Button implements ActionButtonInterface {
     public void init() {
         setText(R.string.customctrl_addsubbutton);
         setOnClickListener(this);
+        setAllCaps(false);
+        setTextColor(ContextCompat.getColor(getContext(), android.R.color.white));
+        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.action_button_background));
+        setPadding(dpToPx(12), dpToPx(8), dpToPx(12), dpToPx(8));
     }
 
     private ControlInterface mCurrentlySelectedButton = null;
@@ -51,5 +56,7 @@ public class AddSubButton extends Button implements ActionButtonInterface {
         }
     }
 
-
+    private int dpToPx(int dp) {
+        return (int) (dp * getResources().getDisplayMetrics().density);
+    }
 }

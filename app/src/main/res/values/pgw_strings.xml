@@ -183,6 +183,18 @@
     <string name="preference_touchcontroller_vibrate_length_title">TouchController vibrate length</string>
     <string name="preference_touchcontroller_vibrate_length_description">Set the length of the vibration when using TouchController.</string>
 
+    <!-- Control Button Visibility -->
+    <string name="preference_category_button_visibility">Button Visibility</string>
+    <string name="preference_hide_button_title">Hide control buttons</string>
+    <string name="preference_hide_button_description">Choose which control buttons should be hidden during gameplay</string>
+    <string name="preference_show_button_labels_title">Show button labels</string>
+    <string name="preference_show_button_labels_description">Toggle visibility of text labels on control buttons</string>
+
+    <!-- Android Mouse Cursor -->
+    <string name="preference_android_cursor_title">Default Android cursor</string>
+    <string name="preference_android_cursor_description">Enable or disable the default Android mouse cursor in-game</string>
+    <string name="preference_android_cursor_disabled_summary">Disable custom mouse cursor</string>
+
     <!-- MG Renderer Settings-->
     <string name="preference_renderer_mobileglues_settings">MobileGlues Renderer Settings</string>
 

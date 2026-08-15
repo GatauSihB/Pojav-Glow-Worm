@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,6 +32,8 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
     private SeekBar mScaleSeekBar;
     private TextView mScaleLabel;
     private TextView mScalePercent;
+    private Switch mShowButtonLabelsSwitch;
+    private Switch mAndroidMouseCursorSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
 
         mControlLayout = findViewById(R.id.customctrl_controllayout);
         mDrawerLayout = findViewById(R.id.customctrl_drawerlayout);
-        mDrawerView = findViewById(R.id.drawer_content); // The drawer content view
+        mDrawerView = findViewById(R.id.drawer_content);
         mControlsList = findViewById(R.id.controls_list);
         mActionsList = findViewById(R.id.actions_list);
         ImageButton drawerButton = findViewById(R.id.drawer_button);
@@ -48,20 +51,22 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
         mScaleSeekBar = findViewById(R.id.global_scale_seekbar);
         mScaleLabel = findViewById(R.id.scale_label);
         mScalePercent = findViewById(R.id.scale_percent);
+        mShowButtonLabelsSwitch = findViewById(R.id.showButtonLabel_switch);
+        mAndroidMouseCursorSwitch = findViewById(R.id.androidMouseCursor_switch);
 
         drawerButton.setOnClickListener(v -> mDrawerLayout.openDrawer(mDrawerView));
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         // Initialize scale from preferences
         int currentScale = (int) LauncherPreferences.PREF_BUTTONSIZE;
-        mScaleSeekBar.setProgress(currentScale - 50); // SeekBar 0-150 maps to 50-200%
+        mScaleSeekBar.setProgress(currentScale - 50);
         updateScaleDisplay(currentScale);
 
         mScaleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (!fromUser) return;
-                int scale = progress + 50; // Map 0-150 to 50-200%
+                int scale = progress + 50;
                 updateScaleDisplay(scale);
                 LauncherPreferences.PREF_BUTTONSIZE = scale;
                 LauncherPreferences.DEFAULT_PREF.edit().putInt("buttonscale", scale).apply();
@@ -73,6 +78,19 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        mShowButtonLabelsSwitch.setChecked(LauncherPreferences.PREF_ENABLE_BUTTON_LABELS);
+        mShowButtonLabelsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LauncherPreferences.PREF_ENABLE_BUTTON_LABELS = isChecked;
+            LauncherPreferences.DEFAULT_PREF.edit().putBoolean("showButtonLabels", isChecked).apply();
+            applyButtonLabelVisibility(isChecked);
+        });
+
+        mAndroidMouseCursorSwitch.setChecked(LauncherPreferences.PREF_ANDROID_MOUSE_CURSOR);
+        mAndroidMouseCursorSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LauncherPreferences.PREF_ANDROID_MOUSE_CURSOR = isChecked;
+            LauncherPreferences.DEFAULT_PREF.edit().putBoolean("androidMouseCursorEnabled", isChecked).apply();
         });
 
         // Build controls list (Add Controls section)
@@ -106,7 +124,7 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
         mControlLayout.setModifiable(true);
         try {
             mControlLayout.loadLayout(LauncherPreferences.PREF_DEFAULTCTRL_PATH);
-            // Apply current global scale after loading
+            applyButtonLabelVisibility(LauncherPreferences.PREF_ENABLE_BUTTON_LABELS);
             applyScaleToControls((int) LauncherPreferences.PREF_BUTTONSIZE);
         } catch (IOException e) {
             Tools.showError(this, e);
@@ -120,11 +138,18 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
     }
 
     private void applyScaleToControls(int scale) {
-        // Apply the global scale to all controls in real-time
         for (net.kdt.pojavlaunch.firefly.customcontrols.buttons.ControlInterface button : mControlLayout.getButtonChildren()) {
             button.applyGlobalScale(scale);
         }
         mControlLayout.getLayout().scaledAt = scale;
+    }
+
+    private void applyButtonLabelVisibility(boolean showLabels) {
+        for (net.kdt.pojavlaunch.firefly.customcontrols.buttons.ControlInterface button : mControlLayout.getButtonChildren()) {
+            if (button instanceof net.kdt.pojavlaunch.firefly.customcontrols.buttons.ControlButton) {
+                ((net.kdt.pojavlaunch.firefly.customcontrols.buttons.ControlButton) button).setLabelVisibility(showLabels);
+            }
+        }
     }
 
     private void onAddControlItemClick(int index) {

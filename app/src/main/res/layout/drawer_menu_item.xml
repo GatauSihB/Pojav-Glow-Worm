@@ -4,9 +4,10 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:paddingVertical="@dimen/_10sdp"
+    android:paddingVertical="@dimen/_12sdp"
     android:paddingHorizontal="@dimen/_16sdp"
-    android:background="?android:attr/selectableItemBackground"
+    android:layout_marginVertical="@dimen/_3sdp"
+    android:background="@drawable/background_drawer_item"
     android:clickable="true"
     android:focusable="true">
 
@@ -17,6 +18,7 @@
         android:layout_weight="1"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_13ssp"
-        android:layout_marginStart="@dimen/_8sdp" />
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_4sdp" />
 
 </LinearLayout>

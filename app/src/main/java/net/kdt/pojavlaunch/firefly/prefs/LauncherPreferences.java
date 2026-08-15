@@ -79,6 +79,9 @@ public class LauncherPreferences {
     public static boolean PREF_BIG_CORE_AFFINITY = false;
     public static boolean PREF_ZINK_PREFER_SYSTEM_DRIVER = false;
 
+    public static boolean PREF_ENABLE_BUTTON_LABELS = true;
+    public static boolean PREF_ANDROID_MOUSE_CURSOR = true;
+
     public static boolean PREF_EXP_SETUP = false;
 
     public static boolean PREF_SETTINGS_BUTTON_VISIBLE = true;
@@ -179,6 +182,9 @@ public class LauncherPreferences {
 
         PREF_FORCE_ENABLE_TOUCHCONTROLLER = DEFAULT_PREF.getBoolean("forceEnableTouchController", false);
         PREF_TOUCHCONTROLLER_VIBRATE_LENGTH = DEFAULT_PREF.getInt("touchControllerVibrateLength", 100);
+
+        PREF_ENABLE_BUTTON_LABELS = DEFAULT_PREF.getBoolean("showButtonLabels", true);
+        PREF_ANDROID_MOUSE_CURSOR = DEFAULT_PREF.getBoolean("androidMouseCursorEnabled", true);
 
         PREF_BRIDGE_CONFIG = DEFAULT_PREF.getString("configBridge", "default");
         PREF_INITIAL_FRAMEBUFFER = DEFAULT_PREF.getBoolean("InitialFrameBuffer", false);

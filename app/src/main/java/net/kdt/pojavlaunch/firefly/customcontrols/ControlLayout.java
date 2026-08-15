@@ -122,6 +122,12 @@ public class ControlLayout extends FrameLayout {
             if (mModifiable) drawer.areButtonsVisible = true;
         }
 
+        for (ControlInterface btn : getButtonChildren()) {
+            if (btn instanceof ControlButton) {
+                ((ControlButton) btn).setLabelVisibility(LauncherPreferences.PREF_ENABLE_BUTTON_LABELS);
+            }
+        }
+
         mLayout.scaledAt = LauncherPreferences.PREF_BUTTONSIZE;
 
         setModified(sanitizedModified);
@@ -143,6 +149,7 @@ public class ControlLayout extends FrameLayout {
             view.setFocusable(false);
             view.setFocusableInTouchMode(false);
         }
+        view.setLabelVisibility(LauncherPreferences.PREF_ENABLE_BUTTON_LABELS);
         addView(view);
 
         setModified(true);

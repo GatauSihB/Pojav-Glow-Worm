@@ -70,7 +70,6 @@ public class ControlButton extends TextView implements ControlInterface {
         mComputedRadius = ControlInterface.super.computeCornerRadius(mProperties.cornerRadius);
 
         if (mProperties.isToggle) {
-            //For the toggle layer
             final TypedValue value = new TypedValue();
             getContext().getTheme().resolveAttribute(R.attr.colorAccent, value, true);
             mRectPaint.setColor(value.data);
@@ -80,7 +79,17 @@ public class ControlButton extends TextView implements ControlInterface {
             mRectPaint.setAlpha(60);
         }
 
+        setLabelVisibility(LauncherPreferences.PREF_ENABLE_BUTTON_LABELS);
         setText(properties.name);
+    }
+
+    public void setLabelVisibility(boolean show) {
+        if (show) {
+            setText(mProperties.name);
+            setAlpha(mProperties.opacity);
+        } else {
+            setText("");
+        }
     }
 
     @Override

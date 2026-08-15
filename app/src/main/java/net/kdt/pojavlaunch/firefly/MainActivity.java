@@ -530,8 +530,17 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
     }
 
     public static void toggleMouse(Context ctx) {
+        // If Android native cursor is enabled, hide virtual mouse and do nothing else
+        if (LauncherPreferences.PREF_ANDROID_MOUSE_CURSOR) {
+            if (touchpad != null && touchpad.getDisplayState()) {
+                // Hide virtual mouse if currently shown
+                touchpad.switchState();
+                Toast(ctx, R.string.control_mouseoff);
+            }
+            return;
+        }
+        // Otherwise, toggle virtual mouse as before (only when not grabbing)
         if (CallbackBridge.isGrabbing()) return;
-
         Toast(ctx, touchpad.switchState() ? R.string.control_mouseon : R.string.control_mouseoff);
     }
 

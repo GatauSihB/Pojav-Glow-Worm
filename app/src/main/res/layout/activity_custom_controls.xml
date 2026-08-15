@@ -160,6 +160,78 @@
                     android:layout_marginHorizontal="@dimen/_16sdp"
                     android:background="@color/glass_stroke" />
 
+                <!-- Section: Button Visibility -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="@string/preference_category_button_visibility"
+                    android:textAllCaps="true"
+                    android:textColor="@color/violet_accent_light"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/preference_show_button_labels_title"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/showButtonLabel_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:thumbTint="@color/violet_accent"
+                        android:trackTint="@color/violet_accent_light" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/preference_android_cursor_title"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/androidMouseCursor_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:thumbTint="@color/violet_accent"
+                        android:trackTint="@color/violet_accent_light" />
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@color/glass_stroke" />
+
                 <!-- Section: Add Controls -->
                 <TextView
                     android:layout_width="wrap_content"

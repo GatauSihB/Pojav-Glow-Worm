@@ -3,6 +3,7 @@ package net.kdt.pojavlaunch.firefly.customcontrols.handleview;
 import static net.kdt.pojavlaunch.firefly.Tools.currentDisplayMetrics;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +11,12 @@ import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.math.MathUtils;
 
 import net.kdt.pojavlaunch.firefly.R;
 import net.kdt.pojavlaunch.firefly.customcontrols.buttons.ControlInterface;
 
-/**
- * Layout floating around a Control Button, displaying contextual actions
- */
 public class ActionRow extends LinearLayout {
 
     public static final int SIDE_LEFT = 0x0;
@@ -52,9 +51,6 @@ public class ActionRow extends LinearLayout {
     private View mFollowedView = null;
     private final int mSide = SIDE_AUTO;
 
-    /**
-     * Add action buttons and configure them
-     */
     private void init() {
         setTranslationZ(11);
         setVisibility(GONE);
@@ -64,17 +60,28 @@ public class ActionRow extends LinearLayout {
                 getResources().getDimensionPixelOffset(R.dimen._40sdp)
         ));
 
+        GradientDrawable bgDrawable = new GradientDrawable();
+        bgDrawable.setShape(GradientDrawable.RECTANGLE);
+        bgDrawable.setCornerRadius(getResources().getDimension(R.dimen._12sdp));
+        bgDrawable.setColor(ContextCompat.getColor(getContext(), R.color.glass_fill_strong));
+        bgDrawable.setStroke(1, ContextCompat.getColor(getContext(), R.color.glass_stroke));
+        setBackground(bgDrawable);
+
+        setElevation(8f);
+        setPadding(dpToPx(8), dpToPx(4), dpToPx(8), dpToPx(4));
+
         actionButtons[0] = new DeleteButton(getContext());
         actionButtons[1] = new CloneButton(getContext());
         actionButtons[2] = new AddSubButton(getContext());
 
-        // This is not pretty code, don't do this.
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
+        lp.setMarginStart(dpToPx(4));
+        lp.setMarginEnd(dpToPx(4));
+
         for (ActionButtonInterface buttonInterface : actionButtons) {
             View button = ((View) (buttonInterface));
-            addView(button, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1F));
+            addView(button, lp);
         }
-
-        setElevation(5F);
     }
 
     public void setFollowedButton(ControlInterface controlInterface) {
@@ -121,12 +128,11 @@ public class ActionRow extends LinearLayout {
     }
 
     private int pickSide() {
-        if (mFollowedView == null) return mSide; //Value should not matter
+        if (mFollowedView == null) return mSide;
 
         if (mSide != SIDE_AUTO) return mSide;
-        //TODO improve the "algo"
         ViewGroup parent = ((ViewGroup) mFollowedView.getParent());
-        if (parent == null) return mSide;//Value should not matter
+        if (parent == null) return mSide;
 
         int side = SIDE_TOP;
         float futurePos = getYPosition(side);
@@ -143,5 +149,9 @@ public class ActionRow extends LinearLayout {
         if (mFollowedView != null)
             mFollowedView.getViewTreeObserver().removeOnPreDrawListener(mFollowedViewListener);
         setVisibility(GONE);
+    }
+
+    private int dpToPx(int dp) {
+        return (int) (dp * getResources().getDisplayMetrics().density);
     }
 }
