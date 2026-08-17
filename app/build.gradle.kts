@@ -282,6 +282,7 @@ dependencies {
     implementation("androidx.annotation:annotation:1.5.0")
     implementation("androidx.documentfile:documentfile:1.0.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.cardview:cardview:1.0.0")
 
     implementation("com.bytedance:bytehook:1.0.10")
     implementation("com.github.duanhong169:checkerboarddrawable:1.0.2")
