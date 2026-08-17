@@ -461,5 +461,3 @@ private float dp(float value) {
         mQuickActionsList.addView(itemView);
     }
 }
-
-}
