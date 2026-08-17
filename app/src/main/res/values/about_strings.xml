@@ -38,7 +38,7 @@ Thanks to MCHeads for providing Minecraft avatars.
     <string name="about_title">About</string>
     <string name="about_description">Pojav Glow·Worm is a modern Minecraft: Java Edition launcher for Android, built on PojavLauncher. Featuring a beautiful violet glassmorphism UI, advanced renderer support (Mesa/VirGL/Freedreno/Panfrost), custom controls, mod management, and experimental features for the best mobile Minecraft experience.</string>
     <string name="about_open_source">Open Source on GitHub → https://github.com/GatauSihB/Pojav-Glow-Worm</string>
-    <string name="about_components_title">Components & Libraries</string>
+    <string name="about_components_title">Components &amp; Libraries</string>
     <string name="about_components">Boardwalk JVM • LWJGL3 • Mesa 3D • GL4ES • VirGL • OpenJDK • Pro-Grade • Terminal View • AndroidX • Material Components • Gson • OkHttp • CommonMark • XZ for Java • And many more open source libraries.</string>
     <string name="about_contributors_title">Contributors</string>
     <string name="about_license_title">License</string>
