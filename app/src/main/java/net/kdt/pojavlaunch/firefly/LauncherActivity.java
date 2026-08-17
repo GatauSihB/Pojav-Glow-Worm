@@ -39,6 +39,7 @@ import net.kdt.pojavlaunch.firefly.extra.ExtraCore;
 import net.kdt.pojavlaunch.firefly.extra.ExtraListener;
 import net.kdt.pojavlaunch.firefly.fragments.MainMenuFragment;
 import net.kdt.pojavlaunch.firefly.fragments.MicrosoftLoginFragment;
+import net.kdt.pojavlaunch.firefly.fragments.ModManagerFragment;
 import net.kdt.pojavlaunch.firefly.fragments.SelectAuthFragment;
 import net.kdt.pojavlaunch.firefly.lifecycle.ContextExecutor;
 import net.kdt.pojavlaunch.firefly.lifecycle.ContextAwareDoneListener;
@@ -48,6 +49,8 @@ import net.kdt.pojavlaunch.firefly.prefs.LauncherPreferences;
 import net.kdt.pojavlaunch.firefly.prefs.screens.LauncherPreferenceFragment;
 import net.kdt.pojavlaunch.firefly.progresskeeper.ProgressKeeper;
 import net.kdt.pojavlaunch.firefly.progresskeeper.TaskCountListener;
+
+import com.qz.terminal2.ConsoleActivity;
 import net.kdt.pojavlaunch.firefly.services.ProgressServiceKeeper;
 import net.kdt.pojavlaunch.firefly.tasks.AsyncMinecraftDownloader;
 import net.kdt.pojavlaunch.firefly.tasks.AsyncVersionList;

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,7 +15,7 @@ import net.kdt.pojavlaunch.firefly.Tools;
 
 public class AboutFragment extends Fragment {
     public static final String TAG = "ABOUT_FRAGMENT";
-    private static final String[][] CONTRIBUTORS = {
+    private static final Object[][] CONTRIBUTORS = {
             {"PojavLauncherTeam", "https://github.com/PojavLauncherTeam", R.drawable.image_about_pojavteam},
             {"Vera-Firefly", "https://github.com/Vera-Firefly", R.drawable.image_about_verafirefly},
             {"MovTery", "https://github.com/MovTery", R.drawable.image_about_movtery},
@@ -35,10 +36,10 @@ public class AboutFragment extends Fragment {
         LinearLayout contributorsList = view.findViewById(R.id.contributors_list);
         if (contributorsList == null) return;
 
-        for (String[] c : CONTRIBUTORS) {
-            String name = c[0];
-            String url = c[1];
-            int iconRes = Integer.parseInt(c[2]);
+        for (Object[] c : CONTRIBUTORS) {
+            String name = (String) c[0];
+            String url = (String) c[1];
+            int iconRes = (int) c[2];
             View itemView = getLayoutInflater().inflate(R.layout.about_contributor_item, contributorsList, false);
             ((TextView) itemView.findViewById(R.id.contributor_name)).setText(name);
             itemView.findViewById(R.id.contributor_icon).setBackgroundResource(iconRes);
