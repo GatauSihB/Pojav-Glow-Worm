@@ -94,6 +94,7 @@
     <string name="profiles_path_delete_title">Delete This Path</string>
     <string name="profiles_path_delete_message">The launcher will delete this path, but it will not delete the files saved in the corresponding path. You can re-add this path after deletion.</string>
     <string name="profiles_path_task_in_progress">Task in progress, path management features are temporarily unavailable</string>
+    <string name="profiles_path_rename">Rename this path</string>
     <!-- Video resolution -->
     <string name="setting_set_resolution_too_big">The current resolution is too large, maximum allowable size is %d</string>
     <string name="setting_set_resolution_too_small">The current resolution is too small, at least %d is required</string>
