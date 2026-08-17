@@ -37,6 +37,7 @@ import net.kdt.pojavlaunch.firefly.contracts.OpenDocumentWithExtension;
 import net.kdt.pojavlaunch.firefly.extra.ExtraConstants;
 import net.kdt.pojavlaunch.firefly.extra.ExtraCore;
 import net.kdt.pojavlaunch.firefly.extra.ExtraListener;
+import net.kdt.pojavlaunch.firefly.CustomControlsActivity;
 import net.kdt.pojavlaunch.firefly.fragments.MainMenuFragment;
 import net.kdt.pojavlaunch.firefly.fragments.MicrosoftLoginFragment;
 import net.kdt.pojavlaunch.firefly.fragments.ModManagerFragment;

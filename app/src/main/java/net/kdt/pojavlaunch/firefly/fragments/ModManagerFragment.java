@@ -42,7 +42,6 @@ public class ModManagerFragment extends Fragment {
     private static final String DISABLED_SUFFIX = ".disabled";
 
     private File mModsDir;
-    private TextView mEmptyView;
     private androidx.cardview.widget.CardView mEmptyCard;
     private RecyclerView mRecyclerview;
     private ModAdapter mAdapter;
@@ -59,8 +58,7 @@ public class ModManagerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         ImageButton mBackButton = view.findViewById(R.id.mod_manager_back_button);
         ImageButton mAddButton = view.findViewById(R.id.mod_manager_add_button);
-        TextView mProfileNameView = view.findViewById(R.id.mod_manager_profile_name);
-        mEmptyView = view.findViewById(R.id.mod_manager_empty_view);
+         TextView mProfileNameView = view.findViewById(R.id.mod_manager_profile_name);
         mEmptyCard = view.findViewById(R.id.mod_manager_empty_card);
         mRecyclerview = view.findViewById(R.id.mod_manager_list);
 
@@ -109,7 +107,6 @@ public class ModManagerFragment extends Fragment {
         mods.sort((a, b) -> a.displayName.compareToIgnoreCase(b.displayName));
         mAdapter.setMods(mods);
         boolean empty = mods.isEmpty();
-        mEmptyView.setVisibility(empty ? View.VISIBLE : View.GONE);
         if (mEmptyCard != null) mEmptyCard.setVisibility(empty ? View.VISIBLE : View.GONE);
         mRecyclerview.setVisibility(empty ? View.GONE : View.VISIBLE);
     }
